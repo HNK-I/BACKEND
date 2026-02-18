@@ -1,0 +1,17 @@
+# Sensitive files
+passwords.txt
+*.env
+.env
+.env.local
+.env.*.local
+secrets.txt
+*.key
+*.pem
+*.p12
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

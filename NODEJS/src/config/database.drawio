@@ -1,0 +1,131 @@
+<mxfile host="65bd71144e">
+    <diagram id="k59dyXg4CrTZYAlruuGn" name="Page-1">
+        <mxGraphModel dx="927" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="27" value="connectDB() — MongoDB Connection Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="20" width="750" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="PHASE 1: MODULE SETUP" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="80" width="160" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="PHASE 2: FUNCTION DEFINITION" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="220" width="160" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="PHASE 3: ASYNC EXECUTION" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="370" width="160" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="PHASE 4: SUCCESS PATH" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="590" width="160" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="PHASE 5: FAILURE PATH" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="730" width="160" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="PHASE 6: EXPORT" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="1020" width="160" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="⬤  START&#xa;File Execution Begins" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#4a90d9;fontColor=#ffffff;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="75" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="import mongoose from &#39;mongoose&#39;&#xa;&#xa;JavaScript engine loads the Mongoose&#xa;ODM library into memory at runtime." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="175" width="350" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="const connectDB = async () =&gt; { ... }&#xa;&#xa;Declares an async arrow function named&#xa;connectDB. Not called yet — just stored&#xa;in memory as a function reference." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="300" width="390" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="connectDB() is invoked&#xa;(called externally, e.g. in index.js)&#xa;&#xa;Async function begins execution.&#xa;JavaScript enters the event loop." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="435" width="370" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="Enter try { } block&#xa;&#xa;Code inside try is monitored for&#xa;any runtime errors or exceptions." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="560" width="370" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="await mongoose.connect(&#xa;  `${process.env.MONGODB_URI}`&#xa;)&#xa;&#xa;• Reads MONGODB_URI from .env file&#xa;• Sends TCP connection request to MongoDB&#xa;• await pauses function until resolved&#xa;• Returns a connectionInstance object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="675" width="410" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="Connection&#xa;Successful?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#4a90d9;fontColor=#ffffff;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="415" y="835" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="console.log(&#xa;  &#39;MongoDB connected!!&#39;&#xa;  + connectionInstance.connection.host&#xa;)&#xa;&#xa;• connectionInstance is the resolved value&#xa;• .connection.host reveals which server&#xa;  was connected (e.g. cluster0.mongodb.net)&#xa;• Confirms DB is live and ready" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="810" width="360" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="connectDB() returns (implicitly)&#xa;&#xa;Async function completes successfully.&#xa;Control returns to the caller." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="770" y="985" width="340" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="catch(error) { }&#xa;&#xa;JavaScript catches the thrown error.&#xa;The error object holds details about&#xa;what went wrong (bad URI, network down,&#xa;auth failure, timeout, etc.)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="810" width="340" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="console.log(&#xa;  &#39;MongoDB connection failed&#39;, error&#xa;)&#xa;&#xa;Prints the error to stderr so the&#xa;developer can diagnose the problem." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="960" width="320" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="process.exit(1)&#xa;&#xa;• Forcefully terminates the Node.js process&#xa;• Exit code 1 = abnormal / error exit&#xa;• Prevents app from running without DB&#xa;• OS / process manager sees the failure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b85450;strokeColor=#6d0000;fontColor=#ffffff;fontStyle=1;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1100" width="300" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="⬤  PROCESS TERMINATED" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6d0000;strokeColor=#b85450;fontColor=#ffffff;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="1250" width="270" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="export default connectDB&#xa;&#xa;Makes the connectDB function available&#xa;to any other module that imports it.&#xa;e.g.: import connectDB from &#39;./db/index.js&#39;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="1010" width="380" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="⬤  END&#xa;Module fully loaded &amp; exported" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#4a90d9;fontColor=#ffffff;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="1140" width="270" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a90d9;strokeWidth=2;" edge="1" parent="1" source="34" target="35">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a90d9;strokeWidth=2;" edge="1" parent="1" source="35" target="36">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a90d9;strokeWidth=2;" edge="1" parent="1" source="36" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;" edge="1" parent="1" source="37" target="38">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;" edge="1" parent="1" source="38" target="39">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;" edge="1" parent="1" source="39" target="40">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="YES ✓" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#82b366;strokeWidth=2;fontStyle=1;fontSize=12;fontColor=#82b366;" edge="1" parent="1" source="40" target="41">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="940" y="880"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#82b366;strokeWidth=2;" edge="1" parent="1" source="41" target="42">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#82b366;strokeWidth=2;dashed=1;" edge="1" parent="1" source="42" target="47">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="940" y="1050"/>
+                            <mxPoint x="760" y="1050"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" value="NO ✗" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b85450;strokeWidth=2;fontStyle=1;fontSize=12;fontColor=#b85450;" edge="1" parent="1" source="40" target="43">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="190" y="880"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="43" target="44">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="44" target="45">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#6d0000;strokeWidth=2;" edge="1" parent="1" source="45" target="46">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#d6b656;strokeWidth=2;" edge="1" parent="1" source="47" target="48">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

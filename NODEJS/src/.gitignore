@@ -1,0 +1,12 @@
+# Sensitive files
+passwords.txt
+*.env
+.env
+.env.local
+.env.*.local
+secrets.txt
+*.key
+*.pem
+*.p12
+.DS_Store
+node_modules/
